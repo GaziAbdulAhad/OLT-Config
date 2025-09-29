@@ -1,0 +1,658 @@
+Current configuration:
+!
+hostname Mirpur-60ft-PoP
+!
+line vty
+ exec-timeout 0 0
+!
+!
+interface aux
+ip address 192.168.8.100 255.255.255.0
+ipv6 address fec0::8207:1bff:fe52:dfac/64
+exit
+interface loopback
+ip address 127.0.0.1 255.0.0.0
+ipv6 address ::1/128
+exit
+!
+vlan 1
+exit
+vlan 41 - 49
+vlan 41
+description PON1
+exit
+!
+vlan 42
+description PON2
+exit
+!
+vlan 43
+description PON3
+exit
+!
+vlan 44
+description PON4
+exit
+!
+vlan 45
+description PON5
+exit
+!
+vlan 46
+description PON6
+exit
+!
+vlan 47
+description PON7
+exit
+!         
+vlan 48
+description PON8
+exit
+!
+interface vlan 49
+ip address 10.20.31.14/30
+interface vlan 49
+ipv6 address fe80::31:8207:1bff:fe52:dfad link-local
+interface aux
+exit
+ip dns 8.8.8.8  1.1.1.1
+interface vlan 49
+exit
+!
+!
+!
+!
+!
+interface gigabitethernet 0/1
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/2
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/3
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/4
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/5
+description Mirpur-1-6F
+switchport mode trunk
+switchport trunk pvid vlan 1
+switchport trunk vlan 41 - 49
+no shutdown 
+speed 10000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/6
+description Shekhertek-6F
+switchport mode trunk
+switchport trunk pvid vlan 1
+switchport trunk vlan 41 - 49
+no shutdown 
+speed 10000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/7
+switchport mode hybrid
+switchport hybrid pvid vlan 1
+switchport hybrid vlan 1 untagged
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!         
+interface gigabitethernet 0/8
+switchport mode hybrid
+switchport hybrid pvid vlan 1
+switchport hybrid vlan 1 untagged
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/9
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/10
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/11
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/12
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/13
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/14
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/15
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface gigabitethernet 0/16
+switchport mode access
+switchport access vlan 49
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/1
+switchport mode access
+switchport access vlan 41
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/2
+switchport mode access
+switchport access vlan 42
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/3
+switchport mode access
+switchport access vlan 43
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/4
+switchport mode access
+switchport access vlan 44
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/5
+switchport mode access
+switchport access vlan 45
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/6
+switchport mode access
+switchport access vlan 46
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/7
+switchport mode access
+switchport access vlan 47
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+interface epon 0/8
+switchport mode access
+switchport access vlan 48
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+switchport isolate
+mac-address mac-learn enable
+no ip igmp snooping immediate-leave
+perf-stats 15min enable
+perf-stats 24hour enable
+perf-stats custom enable
+ipv6 mld snooping group-limit 256
+exit
+!
+!
+port link-flapping mode auto-recovery
+!
+debug mode 
+cpld i2c-read debug off 
+exit
+!
+ip route 0.0.0.0/0 10.20.31.13
+!
+
+!         
+!
+login-access-list enable 
+!
+queue-scheduler strict-priority
+!<RSTP Config Information>
+!
+dhcp-server leasetime 864000
+dhcp-server startip 192.168.0.20 endip 192.168.0.254
+dhcp-server interface vlan 1
+!
+!<dhcp relay config information>
+!<tacplus config information>
+!
+!dhcp-snooping configuration
+dhcp-snooping information strategy keep
+!<radius config information>
+!
+!<dhcp6 server config information>
+duid duid-llt
+!<dhcp6 relay config information>
+!
+ip igmp snooping max-response-time 25
+!
+loopback detect enable  
+loopback mode auto-recovery
+crypto key generate rsa usage-keys modulus 2048
+!
+!
+snmp-server start
+snmp-server community max ro 
+snmp-server community test rw 
+snmp-server community public ro 
+snmp-server community private rw 
+snmp-server notify notify inform inform  inform 
+snmp-server notify notify trap trap  trap 
+remote server 103.81.104.78
+!
+!
+interface epon 0/1
+confirm onu mac 2c:d2:e3:04:69:bb onuid 1
+confirm onu mac 2c:d2:e3:03:9b:d4 onuid 2
+confirm onu mac 2c:d2:e3:03:9b:cc onuid 3
+confirm onu mac 2c:d2:e3:03:9b:c8 onuid 4
+confirm onu mac 2c:d2:e3:03:9b:e0 onuid 5
+confirm onu mac 94:fb:a7:b1:66:9d onuid 6
+confirm onu mac 2c:d2:e3:03:9b:dc onuid 7
+confirm onu mac 2c:d2:e3:04:73:eb onuid 8
+confirm onu mac 2c:d2:e3:03:9b:e4 onuid 9
+confirm onu mac 2c:d2:e3:03:ab:dc onuid 10
+confirm onu mac 94:fb:a7:b1:58:a3 onuid 11
+confirm onu mac 94:fb:a7:b1:57:f3 onuid 12
+confirm onu mac 2c:d2:e3:03:b9:30 onuid 13
+confirm onu mac 2c:d2:e3:03:b5:ac onuid 15
+confirm onu mac 2c:d2:e3:04:69:87 onuid 16
+exit
+!
+interface epon 0/1
+onu 1 description mp@1ariful
+onu 2 description tawhid-mahmud
+onu 3 description mp@4gius-uddin
+onu 4 description mp@5siddique
+onu 5 description mp@1ariful
+onu 6 description mp@1817halima
+onu 7 description mp@6raihan
+onu 8 description mp@8kawcer
+onu 9 description mp@7moinul
+onu 10 description mp@9rabioul
+onu 11 description mp@1816farhana
+onu 12 description mp@1837ashraful
+onu 13 description mp@12monjur
+onu 15 description mp@14munzur
+onu 16 description mp@15fahmida
+exit
+!
+debug mode 
+config level log l2ftp 6
+exit
+!
+!
+
+!!!
+web login timeout 30
+web verification-code disable
+!
+debug mode
+web security admin_control enable
+web pri_wan_display enable
+exit
+!
+!
+time zone 6
+timezone offset 1
+!
+!
+role add custom_default permission 682
+!um
+user add admin login-password f1fb5873573649124b93452f177dc7c1
+user role admin ADMIN enable-password f1fb5873573649124b93452f177dc7c1
+user add noc login-password d766ef35f475d78cc760bf958225a591
+user role noc ADMIN enable-password d766ef35f475d78cc760bf958225a591
+!<MSTP Config Information>
+spanning-tree mst configuration
+exit
+!
+!
+interface gigabitethernet 0/1
+exit
+!
+interface gigabitethernet 0/2
+exit
+!
+interface gigabitethernet 0/3
+exit
+!
+interface gigabitethernet 0/4
+exit
+!
+interface gigabitethernet 0/5
+exit
+!
+interface gigabitethernet 0/6
+exit
+!
+interface gigabitethernet 0/7
+exit
+!
+interface gigabitethernet 0/8
+exit
+!
+interface gigabitethernet 0/9
+exit
+!
+interface gigabitethernet 0/10
+ spanning-tree mst instance 0 path-cost 200000
+exit
+!
+interface gigabitethernet 0/11
+exit
+!
+interface gigabitethernet 0/12
+exit
+!
+interface gigabitethernet 0/13
+exit
+!
+interface gigabitethernet 0/14
+exit      
+!
+interface gigabitethernet 0/15
+exit
+!
+interface gigabitethernet 0/16
+exit
+!
+interface vlan 49
+!
+debug mode 
+debug ospf6 lsa unknown
+!
+exit
+!
+interface vlan 49
+!
+!
+!
+!
+ntp server 182.16.156.5 
+!
+!
