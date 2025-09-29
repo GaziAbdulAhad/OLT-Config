@@ -1,0 +1,1456 @@
+Current configuration:
+!
+!Software Version      : V2.2.0R
+!Software Created Time : 15/10/2021
+!
+hostname Joymontop-GPON-OLT
+password Xpon@Olt9417#
+enable password Xpon@Olt9417#
+log trap emergencies
+!
+line vty
+exit
+!
+security-dos
+flexible ctrl 0 ctrl2 0
+Dos Prevent level off 
+exit
+!
+interface aux
+ip address 192.168.8.200 255.255.255.0
+ipv6 address fec0::4eae:1cff:fe30:e63e/64
+exit
+!
+vlan 1
+exit
+vlan 150 - 158
+vlan 1606
+exit
+vlan 2011
+exit
+vlan 2130
+exit
+vlan 2230
+exit
+vlan 2330
+exit
+vlan 2430
+exit
+vlan 3705
+exit
+vlan 150
+description All-eth-port
+exit
+!
+interface vlan 150
+ip address 10.20.31.10/30
+exit
+!         
+interface vlan 150
+ipv6 address fe80::96:4eae:1cff:fe30:e63f link-local
+exit
+vlan 151
+description PON-1
+exit
+!
+vlan 152
+description PON-2
+exit
+!
+vlan 153
+description PON-3
+exit
+!
+vlan 154
+description PON-4
+exit
+!
+vlan 155
+description PON-5
+exit
+!
+vlan 156
+description PON-6
+exit
+!
+vlan 157
+description PON-7
+exit
+!
+vlan 158
+description PON-8
+exit
+!
+vlan 1606
+description Netbuzz-joymontop
+exit
+!
+interface vlan 1606
+ipv6 address fe80::646:4eae:1cff:fe30:e63f link-local
+exit
+vlan 2011
+description Kasmir-Abbass
+exit
+!
+vlan 3705
+description EDC-DATA
+exit      
+!
+interface aux
+exit
+ip dns 8.8.8.8  8.8.4.4
+interface vlan 150
+exit
+!
+interface vlan 1606
+exit
+!
+!
+!
+!
+!
+interface gigabitethernet 0/1
+description NPIUB
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk pvid vlan 1
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/2
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/3
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/4
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/5
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/6
+switchport mode access
+switchport access vlan 2011
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!         
+interface gigabitethernet 0/7
+description Kasmir-Abbas
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 151
+switchport trunk vlan 152
+switchport trunk vlan 153
+switchport trunk vlan 154
+switchport trunk vlan 155
+switchport trunk vlan 156
+switchport trunk vlan 157
+switchport trunk vlan 158
+switchport trunk vlan 2011
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk vlan 3705
+switchport trunk pvid vlan 1
+no shutdown 
+speed 1000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/8
+description NOC-Link
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 151
+switchport trunk vlan 152
+switchport trunk vlan 153
+switchport trunk vlan 154
+switchport trunk vlan 155
+switchport trunk vlan 156
+switchport trunk vlan 157
+switchport trunk vlan 158
+switchport trunk vlan 2011
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk vlan 3705
+switchport trunk vlan 1606
+switchport trunk pvid vlan 1
+no shutdown 
+speed 10000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/9
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/10
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/11
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/12
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/13
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/14
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/15
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+Current configuration:
+!
+!Software Version      : V2.2.0R
+!Software Created Time : 15/10/2021
+!
+hostname Joymontop-GPON-OLT
+password Xpon@Olt9417#
+enable password Xpon@Olt9417#
+log trap emergencies
+!
+line vty
+exit
+!
+security-dos
+flexible ctrl 0 ctrl2 0
+Dos Prevent level off 
+exit
+!
+interface aux
+ip address 192.168.8.200 255.255.255.0
+ipv6 address fec0::4eae:1cff:fe30:e63e/64
+exit
+!
+vlan 1
+exit
+vlan 150 - 158
+vlan 1606
+exit
+vlan 2011
+exit
+vlan 2130
+exit
+vlan 2230
+exit
+vlan 2330
+exit
+vlan 2430
+exit
+vlan 3705
+exit
+vlan 150
+description All-eth-port
+exit
+!
+interface vlan 150
+ip address 10.20.31.10/30
+exit
+!         
+interface vlan 150
+ipv6 address fe80::96:4eae:1cff:fe30:e63f link-local
+exit
+vlan 151
+description PON-1
+exit
+!
+vlan 152
+description PON-2
+exit
+!
+vlan 153
+description PON-3
+exit
+!
+vlan 154
+description PON-4
+exit
+!
+vlan 155
+description PON-5
+exit
+!
+vlan 156
+description PON-6
+exit
+!
+vlan 157
+description PON-7
+exit
+!
+vlan 158
+description PON-8
+exit
+!
+vlan 1606
+description Netbuzz-joymontop
+exit
+!
+interface vlan 1606
+ipv6 address fe80::646:4eae:1cff:fe30:e63f link-local
+exit
+vlan 2011
+description Kasmir-Abbass
+exit
+!
+vlan 3705
+description EDC-DATA
+exit      
+!
+interface aux
+exit
+ip dns 8.8.8.8  8.8.4.4
+interface vlan 150
+exit
+!
+interface vlan 1606
+exit
+!
+!
+!
+!
+!
+interface gigabitethernet 0/1
+description NPIUB
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk pvid vlan 1
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/2
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/3
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/4
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/5
+switchport mode access
+switchport access vlan 150
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/6
+switchport mode access
+switchport access vlan 2011
+no shutdown 
+speed auto 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!         
+interface gigabitethernet 0/7
+description Kasmir-Abbas
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 151
+switchport trunk vlan 152
+switchport trunk vlan 153
+switchport trunk vlan 154
+switchport trunk vlan 155
+switchport trunk vlan 156
+switchport trunk vlan 157
+switchport trunk vlan 158
+switchport trunk vlan 2011
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk vlan 3705
+switchport trunk pvid vlan 1
+no shutdown 
+speed 1000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/8
+description NOC-Link
+switchport mode trunk
+switchport trunk vlan 150
+switchport trunk vlan 151
+switchport trunk vlan 152
+switchport trunk vlan 153
+switchport trunk vlan 154
+switchport trunk vlan 155
+switchport trunk vlan 156
+switchport trunk vlan 157
+switchport trunk vlan 158
+switchport trunk vlan 2011
+switchport trunk vlan 2130
+switchport trunk vlan 2230
+switchport trunk vlan 2330
+switchport trunk vlan 2430
+switchport trunk vlan 3705
+switchport trunk vlan 1606
+switchport trunk pvid vlan 1
+no shutdown 
+speed 10000 
+duplex full 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/9
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/10
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/11
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/12
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/13
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/14
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/15
+switchport mode access
+switchport access vlan 150
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gigabitethernet 0/16
+description Netbuzz
+switchport mode access
+switchport access vlan 1606
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no switchport isolate
+no ip igmp snooping immediate-leave
+exit
+!
+interface gpon 0/1
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/2
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/3
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/4
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/5
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/6
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/7
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+interface gpon 0/8
+no shutdown 
+mdi force
+storm-control broadcast fps 512
+no storm-control multicast
+storm-control unknow fps 512
+no ip igmp snooping immediate-leave
+mac address-table mac-flapping disable
+exit
+!
+!
+port link-flapping mode auto-recovery
+!
+!
+profile dba id 1 name MaxBW
+type 4 maximum 1024000
+exit      
+!
+profile dba id 511 name default1
+type 3 assured 1024 maximum 1024000
+exit
+!
+profile srv id 1 name srv_PON1_VLAN151
+portvlan eth 1 mode tag vlan 151
+commit
+exit
+!
+profile srv id 2 name srv_PON2_VLAN152
+portvlan eth 1 mode tag vlan 152
+commit
+exit
+!
+profile srv id 3 name srv_PON3_VLAN153
+portvlan eth 1 mode tag vlan 153
+commit
+exit
+!
+profile srv id 4 name srv_PON4_VLAN154
+portvlan eth 1 mode tag vlan 154
+commit
+exit
+!
+profile srv id 5 name srv_PON5_VLAN155
+portvlan eth 1 mode tag vlan 155
+commit
+exit
+!
+profile srv id 6 name srv_PON6_VLAN156
+portvlan eth 1 mode tag vlan 156
+commit
+exit
+!
+profile srv id 7 name srv_PON7_VLAN157
+portvlan eth 1 mode tag vlan 157
+commit
+exit
+!
+profile srv id 8 name srv_PON8_VLAN158
+portvlan eth 1 mode tag vlan 158
+commit
+exit
+!
+profile srv id 9 name srv_9-EDC-DATA-3705
+portvlan eth 1 mode tag vlan 3705
+commit
+exit      
+!
+profile alarm id 1 name alarm_profile_1
+state enable
+rx-optical low -25 upper -8
+commit
+exit
+!
+profile line id 1 name line_PON1_VLAN151
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 151
+      service-port 1 gemport 1 uservlan 151 vlan 151
+commit
+exit
+!
+profile line id 2 name line_PON2_VLAN152
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 152
+      service-port 1 gemport 1 uservlan 152 vlan 152
+commit
+exit
+!
+profile line id 3 name line_PON3_VLAN153
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 153
+      service-port 1 gemport 1 uservlan 153 vlan 153
+commit
+exit
+!
+profile line id 4 name line_PON4_VLAN154
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 154
+      service-port 1 gemport 1 uservlan 154 vlan 154
+commit
+exit
+!
+profile line id 5 name line_PON5_VLAN155
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 155
+      service-port 1 gemport 1 uservlan 155 vlan 155
+commit
+exit
+!
+profile line id 6 name line_PON6_VLAN156
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 156
+      service-port 1 gemport 1 uservlan 156 vlan 156
+commit
+exit
+!
+profile line id 7 name line_PON7_VLAN157
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 157
+      service-port 1 gemport 1 uservlan 157 vlan 157
+commit
+exit
+!
+profile line id 8 name line_PON8_VLAN158
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 158
+      service-port 1 gemport 1 uservlan 158 vlan 158
+commit
+exit
+!
+profile line id 9 name line_9-EDC-DATA-3705
+  tcont 1 dba MaxBW
+    gemport 1 tcont 1 gemport_name gem_1
+      service ser_1 gemport 1 vlan 3705
+      service-port 1 gemport 1 uservlan 3705 vlan 3705
+commit
+exit
+!
+interface gpon 0/1
+onu auto-learn
+onu auto-learn line-profile name line_PON1_VLAN151
+onu auto-learn srv-profile name srv_PON1_VLAN151
+onu auto-learn alarm-profile name alarm_profile_1
+onu add 1 profile default sn AIRM23111171
+onu 1 desc l3@115safaly
+onu 1 profile line name line_PON1_VLAN151
+onu 1 profile srv name srv_PON1_VLAN151
+onu 1 profile alarm name alarm_profile_1
+onu add 2 profile default sn HCKTA7B160FF
+onu 2 profile line name line_PON1_VLAN151
+onu 2 profile srv name srv_PON1_VLAN151
+onu 2 profile alarm name alarm_profile_1
+onu add 3 profile default sn AIRM23110546
+onu 3 desc EDC-727
+onu 3 profile line name line_9-EDC-DATA-3705
+onu 3 profile srv name srv_9-EDC-DATA-3705
+onu 3 profile alarm name alarm_profile_1
+onu add 4 profile default sn AIRM23110541
+onu 4 desc EDC-433
+onu 4 profile line name line_9-EDC-DATA-3705
+onu 4 profile srv name srv_9-EDC-DATA-3705
+onu 4 profile alarm name alarm_profile_1
+onu add 5 profile default sn ASTCA7060020
+onu 5 desc jm@072robel
+onu 5 profile line name line_PON1_VLAN151
+onu 5 profile srv name srv_PON1_VLAN151
+onu 5 profile alarm name alarm_profile_1
+onu add 6 profile default sn ASTCA7060609
+onu 6 desc l3@119nitai-dokan
+onu 6 profile line name line_PON1_VLAN151
+onu 6 profile srv name srv_PON1_VLAN151
+onu add 7 profile default sn ASTCA7060621
+onu 7 desc l3@130nazma
+onu 7 profile line name line_PON1_VLAN151
+onu 7 profile srv name srv_PON1_VLAN151
+onu add 8 profile default sn ASTCA7060822
+onu 8 desc jm@043shuvo
+onu 8 profile line name line_PON1_VLAN151
+onu 8 profile srv name srv_PON1_VLAN151
+onu 8 profile alarm name alarm_profile_1
+onu add 9 profile default sn AIRM23110544
+onu 9 desc jm@092nasir
+onu 9 profile line name line_PON1_VLAN151
+onu 9 profile srv name srv_PON1_VLAN151
+onu 9 profile alarm name alarm_profile_1
+onu add 10 profile default sn VSOLC8D0C6C6
+onu 10 desc jm@091nasirdokan
+onu 10 profile line name line_PON1_VLAN151
+onu 10 profile srv name srv_PON1_VLAN151
+onu 10 profile alarm name alarm_profile_1
+onu 10 pri equid VSOLD401
+onu add 11 profile default sn ASTCA7060045
+onu 11 desc jm@012sakib
+onu 11 profile line name line_PON1_VLAN151
+onu 11 profile srv name srv_PON1_VLAN151
+onu add 12 profile default sn ASTCA7060029
+onu 12 desc jm@013ismail
+onu 12 profile line name line_PON1_VLAN151
+onu 12 profile srv name srv_PON1_VLAN151
+onu add 13 profile default sn ASTCA7060034
+onu 13 desc jm@014radarani
+onu 13 profile line name line_PON1_VLAN151
+onu 13 profile srv name srv_PON1_VLAN151
+onu 13 profile alarm name alarm_profile_1
+onu add 14 profile default sn ASTCA7060041
+onu 14 desc jm@079mourin
+onu 14 profile line name line_PON1_VLAN151
+onu 14 profile srv name srv_PON1_VLAN151
+onu add 15 profile default sn HCKTA7B15873
+onu 15 profile line name line_PON1_VLAN151
+onu 15 profile srv name srv_PON1_VLAN151
+onu 15 profile alarm name alarm_profile_1
+onu add 16 profile default sn HWTC12117CB0
+onu 16 desc jm@082lipi
+onu 16 profile line name line_PON1_VLAN151
+onu 16 profile srv name srv_PON1_VLAN151
+onu 16 profile alarm name alarm_profile_1
+onu add 17 profile default sn HWTC2CFF0AC2
+onu 17 profile line name line_PON1_VLAN151
+onu 17 profile srv name srv_PON1_VLAN151
+onu 17 profile alarm name alarm_profile_1
+onu add 18 profile default sn ASTCA7060825
+onu 18 desc jm@020polash
+onu 18 profile line name line_PON1_VLAN151
+onu 18 profile srv name srv_PON1_VLAN151
+onu add 20 profile default sn ASTCA7060069
+onu 20 desc jm@053jalal
+onu 20 profile line name line_PON1_VLAN151
+onu 20 profile srv name srv_PON1_VLAN151
+onu 20 profile alarm name alarm_profile_1
+onu add 21 profile default sn ASTCA7060824
+onu 21 desc jm@023saiful
+onu 21 profile line name line_PON1_VLAN151
+onu 21 profile srv name srv_PON1_VLAN151
+onu add 22 profile default sn ASTCA7061711
+onu 22 desc jm@087babu
+onu 22 profile line name line_PON1_VLAN151
+onu 22 profile srv name srv_PON1_VLAN151
+onu 22 profile alarm name alarm_profile_1
+onu add 23 profile default sn ASTCA7060813
+onu 23 desc jm@028jamila
+onu 23 profile line name line_PON1_VLAN151
+onu 23 profile srv name srv_PON1_VLAN151
+onu add 24 profile default sn ASTCA7061717
+onu 24 desc l3@120radwon
+onu 24 profile line name line_PON1_VLAN151
+onu 24 profile srv name srv_PON1_VLAN151
+onu 24 profile alarm name alarm_profile_1
+onu add 25 profile default sn ASTCA7061055
+onu 25 desc jm@042julekha
+onu 25 profile line name line_PON1_VLAN151
+onu 25 profile srv name srv_PON1_VLAN151
+onu 25 profile alarm name alarm_profile_1
+onu add 26 profile default sn ASTCA7060809
+onu 26 desc jm@029pal
+onu 26 profile line name line_PON1_VLAN151
+onu 26 profile srv name srv_PON1_VLAN151
+onu add 27 profile default sn ASTCA7060810
+onu 27 desc jm@031sohel
+onu 27 profile line name line_PON1_VLAN151
+onu 27 profile srv name srv_PON1_VLAN151
+onu add 28 profile default sn ASTCA7060804
+onu 28 desc jm@034amena
+onu 28 profile line name line_PON1_VLAN151
+onu 28 profile srv name srv_PON1_VLAN151
+onu add 29 profile default sn VSOLC8E39D91
+onu 29 desc l3@118nitai-home
+onu 29 profile line name line_PON1_VLAN151
+onu 29 profile srv name srv_PON1_VLAN151
+onu 29 profile alarm name alarm_profile_1
+onu 29 pri equid VSOLD401
+onu add 30 profile default sn ASTCA7060009
+onu 30 desc jm@037ranidas
+onu 30 profile line name line_PON1_VLAN151
+onu 30 profile srv name srv_PON1_VLAN151
+onu add 32 profile default sn ASTCA7060019
+onu 32 desc jm@039alamin
+onu 32 profile line name line_PON1_VLAN151
+onu 32 profile srv name srv_PON1_VLAN151
+onu add 33 profile default sn ASTCA7060005
+onu 33 desc jm@038ganes
+onu 33 profile line name line_PON1_VLAN151
+onu 33 profile srv name srv_PON1_VLAN151
+onu add 34 profile default sn ASTCA7061075
+onu 34 desc jm@069jaedur
+onu 34 profile line name line_PON1_VLAN151
+onu 34 profile srv name srv_PON1_VLAN151
+onu 34 profile alarm name alarm_profile_1
+onu add 35 profile default sn HCKTA7B15DF5
+onu 35 desc jm@1907sadikul
+onu 35 profile line name line_PON1_VLAN151
+onu 35 profile srv name srv_PON1_VLAN151
+onu 35 profile alarm name alarm_profile_1
+onu add 37 profile default sn ASTCA7060087
+onu 37 desc jm@046monowara
+onu 37 profile line name line_PON1_VLAN151
+onu 37 profile srv name srv_PON1_VLAN151
+onu 37 profile alarm name alarm_profile_1
+onu add 38 profile default sn ASTCA7060088
+onu 38 desc jm@047monowar
+onu 38 profile line name line_PON1_VLAN151
+onu 38 profile srv name srv_PON1_VLAN151
+onu 38 profile alarm name alarm_profile_1
+onu add 40 profile default sn ASTCA7060086
+onu 40 desc jm@049moriom
+onu 40 profile line name line_PON1_VLAN151
+onu 40 profile srv name srv_PON1_VLAN151
+onu 40 profile alarm name alarm_profile_1
+onu add 41 profile default sn ASTCA7061089
+onu 41 desc jm@071mokbul
+onu 41 profile line name line_PON1_VLAN151
+onu 41 profile srv name srv_PON1_VLAN151
+onu 41 profile alarm name alarm_profile_1
+onu add 42 profile default sn ASTCA7060066
+onu 42 desc jm@050ruma
+onu 42 profile line name line_PON1_VLAN151
+onu 42 profile srv name srv_PON1_VLAN151
+onu 42 profile alarm name alarm_profile_1
+onu add 43 profile default sn VSOL00E2579F
+onu 43 desc l3@114surendo-own
+onu 43 profile line name line_PON1_VLAN151
+onu 43 profile srv name srv_PON1_VLAN151
+onu 43 profile alarm name alarm_profile_1
+onu 43 pri equid VSOLD401
+onu add 44 profile default sn ASTCA7060067
+onu 44 desc jm@052tuhin
+onu 44 profile line name line_PON1_VLAN151
+onu 44 profile srv name srv_PON1_VLAN151
+onu 44 profile alarm name alarm_profile_1
+onu add 47 profile default sn VSOL00E2662F
+onu 47 desc jm@055alim
+onu 47 profile line name line_PON1_VLAN151
+onu 47 profile srv name srv_PON1_VLAN151
+onu 47 profile alarm name alarm_profile_1
+onu 47 pri equid VSOLD401
+onu add 48 profile default sn AIRM23111182
+onu 48 desc jm@056tanver
+onu 48 profile line name line_PON1_VLAN151
+onu 48 profile srv name srv_PON1_VLAN151
+onu 48 profile alarm name alarm_profile_1
+onu add 49 profile default sn AIRM23111190
+onu 49 desc jm@058shampa
+onu 49 profile line name line_PON1_VLAN151
+onu 49 profile srv name srv_PON1_VLAN151
+onu 49 profile alarm name alarm_profile_1
+onu add 51 profile default sn VSOL00AD0A96
+onu 51 desc jm@063rita
+onu 51 profile line name line_PON1_VLAN151
+onu 51 profile srv name srv_PON1_VLAN151
+onu 51 profile alarm name alarm_profile_1
+onu 51 pri equid VSOLD401
+onu add 52 profile default sn AIRM23111176
+onu 52 desc jm@064razzak
+onu 52 profile line name line_PON1_VLAN151
+onu 52 profile srv name srv_PON1_VLAN151
+onu 52 profile alarm name alarm_profile_1
+onu add 53 profile default sn AIRM23111189
+onu 53 desc jm@078safayet
+onu 53 profile line name line_PON1_VLAN151
+onu 53 profile srv name srv_PON1_VLAN151
+onu 53 profile alarm name alarm_profile_1
+onu add 55 profile default sn HWTC9E615AC8
+onu 55 desc jm@067bijoy(own)
+onu 55 profile line name line_PON1_VLAN151
+onu 55 profile srv name srv_PON1_VLAN151
+onu 55 profile alarm name alarm_profile_1
+onu add 56 profile default sn AIRM23111174
+onu 56 desc jm@068banna
+onu 56 profile line name line_PON1_VLAN151
+onu 56 profile srv name srv_PON1_VLAN151
+onu 56 profile alarm name alarm_profile_1
+onu add 58 profile default sn AIRM23110976
+onu 58 desc l3@116roman
+onu 58 profile line name line_PON1_VLAN151
+onu 58 profile srv name srv_PON1_VLAN151
+onu 58 profile alarm name alarm_profile_1
+onu add 59 profile default sn AIRM23110990
+onu 59 desc jm@073palash
+onu 59 profile line name line_PON1_VLAN151
+onu 59 profile srv name srv_PON1_VLAN151
+onu 59 profile alarm name alarm_profile_1
+onu add 61 profile default sn AIRM23110957
+onu 61 desc jm@075shewly
+onu 61 profile line name line_PON1_VLAN151
+onu 61 profile srv name srv_PON1_VLAN151
+onu 61 profile alarm name alarm_profile_1
+onu add 63 profile default sn AIRM23110977
+onu 63 desc jm@077mithu
+onu 63 profile line name line_PON1_VLAN151
+onu 63 profile srv name srv_PON1_VLAN151
+onu 63 profile alarm name alarm_profile_1
+onu add 64 profile default sn ASTCA7061944
+onu 64 desc jm@081shilpi
+onu 64 profile line name line_PON1_VLAN151
+onu 64 profile srv name srv_PON1_VLAN151
+onu 64 profile alarm name alarm_profile_1
+onu add 67 profile default sn ASTCA7061924
+onu 67 desc jm@084aklima
+onu 67 profile line name line_PON1_VLAN151
+onu 67 profile srv name srv_PON1_VLAN151
+onu 67 profile alarm name alarm_profile_1
+onu add 68 profile default sn ASTCA7061923
+onu 68 desc jm@085suraj
+onu 68 profile line name line_PON1_VLAN151
+onu 68 profile srv name srv_PON1_VLAN151
+onu 68 profile alarm name alarm_profile_1
+onu add 69 profile default sn VSOL009F58A1
+onu 69 desc jm@021bholanath
+onu 69 profile line name line_PON1_VLAN151
+onu 69 profile srv name srv_PON1_VLAN151
+onu 69 profile alarm name alarm_profile_1
+onu 69 pri equid VSOLD401
+onu add 70 profile default sn ASTCA7061747
+onu 70 desc jm@086shaon
+onu 70 profile line name line_PON1_VLAN151
+onu 70 profile srv name srv_PON1_VLAN151
+onu 70 profile alarm name alarm_profile_1
+onu add 72 profile default sn ASTCA7061704
+onu 72 desc jm@088rasedul
+onu 72 profile line name line_PON1_VLAN151
+onu 72 profile srv name srv_PON1_VLAN151
+onu 72 profile alarm name alarm_profile_1
+onu add 73 profile default sn ASTCA7060814
+onu 73 desc jm@026mukul
+onu 73 profile line name line_PON1_VLAN151
+onu 73 profile srv name srv_PON1_VLAN151
+onu 73 profile alarm name alarm_profile_1
+exit
+!
+interface gpon 0/2
+onu auto-learn
+onu auto-learn line-profile name line_PON2_VLAN152
+onu auto-learn srv-profile name srv_PON2_VLAN152
+onu auto-learn alarm-profile name alarm_profile_1
+onu add 1 profile default sn ASTCA7060622
+onu 1 desc bhkhan1
+onu 1 profile line name line_PON2_VLAN152
+onu 1 profile srv name srv_PON2_VLAN152
+onu add 2 profile default sn AIRM23110532
+onu 2 desc jm@090khaleda
+onu 2 profile line name line_PON2_VLAN152
+onu 2 profile srv name srv_PON2_VLAN152
+onu 2 profile alarm name alarm_profile_1
+onu add 3 profile default sn AIRM23111173
+onu 3 desc jm@070yasin
+onu 3 profile line name line_PON2_VLAN152
+onu 3 profile srv name srv_PON2_VLAN152
+onu 3 profile alarm name alarm_profile_1
+onu add 4 profile default sn AIRM23113072
+onu 4 desc jm@089somrat
+onu 4 profile line name line_PON2_VLAN152
+onu 4 profile srv name srv_PON2_VLAN152
+onu 4 profile alarm name alarm_profile_1
+onu add 5 profile default sn ASTCA7060821
+onu 5 desc jm@022rafeja
+onu 5 profile line name line_PON2_VLAN152
+onu 5 profile srv name srv_PON2_VLAN152
+onu add 6 profile default sn ASTCA7060802
+onu 6 desc jm@033mostafizur
+onu 6 profile line name line_PON2_VLAN152
+onu 6 profile srv name srv_PON2_VLAN152
+onu add 7 profile default sn ASTCA7060805
+onu 7 desc jm@035shahinur
+onu 7 profile line name line_PON2_VLAN152
+onu 7 profile srv name srv_PON2_VLAN152
+onu add 8 profile default sn ASTCA7060008
+onu 8 desc jm@036sreebash
+onu 8 profile line name line_PON2_VLAN152
+onu 8 profile srv name srv_PON2_VLAN152
+onu add 9 profile default sn ASTCA7060023
+onu 9 desc jm@044mamun
+onu 9 profile line name line_PON2_VLAN152
+onu 9 profile srv name srv_PON2_VLAN152
+onu add 10 profile default sn ASTCA7060085
+onu 10 desc jm@048jahanara
+onu 10 profile line name line_PON2_VLAN152
+onu 10 profile srv name srv_PON2_VLAN152
+onu 10 profile alarm name alarm_profile_1
+onu add 11 profile default sn HCKTA7B15773
+onu 11 desc jm@1866shirin
+onu 11 profile line name line_PON2_VLAN152
+onu 11 profile srv name srv_PON2_VLAN152
+onu 11 profile alarm name alarm_profile_1
+onu add 12 profile default sn AIRM23111183
+onu 12 desc jm@057akash
+onu 12 profile line name line_PON2_VLAN152
+onu 12 profile srv name srv_PON2_VLAN152
+onu 12 profile alarm name alarm_profile_1
+onu add 13 profile default sn AIRM23111187
+onu 13 desc jm@061shadin
+onu 13 profile line name line_PON2_VLAN152
+onu 13 profile srv name srv_PON2_VLAN152
+onu 13 profile alarm name alarm_profile_1
+onu add 14 profile default sn AIRM23111186
+onu 14 desc jm@060israfil
+onu 14 profile line name line_PON2_VLAN152
+onu 14 profile srv name srv_PON2_VLAN152
+onu 14 profile alarm name alarm_profile_1
+onu add 16 profile default sn HCKTA7B1615D
+onu 16 profile line name line_PON2_VLAN152
+onu 16 profile srv name srv_PON2_VLAN152
+onu 16 profile alarm name alarm_profile_1
+onu add 17 profile default sn GPON00B524A6
+onu 17 profile line name line_PON2_VLAN152
+onu 17 profile srv name srv_PON2_VLAN152
+onu 17 profile alarm name alarm_profile_1
+onu 17 pri equid VSOLV601
+exit
+!
+interface gpon 0/3
+onu auto-learn
+onu auto-learn line-profile name line_PON3_VLAN153
+onu auto-learn srv-profile name srv_PON3_VLAN153
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+interface gpon 0/4
+onu auto-learn
+onu auto-learn line-profile name line_PON4_VLAN154
+onu auto-learn srv-profile name srv_PON4_VLAN154
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+interface gpon 0/5
+onu auto-learn
+onu auto-learn line-profile name line_PON5_VLAN155
+onu auto-learn srv-profile name srv_PON5_VLAN155
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+interface gpon 0/6
+onu auto-learn
+onu auto-learn line-profile name line_PON6_VLAN156
+onu auto-learn srv-profile name srv_PON6_VLAN156
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+interface gpon 0/7
+onu auto-learn
+onu auto-learn line-profile name line_PON7_VLAN157
+onu auto-learn srv-profile name srv_PON7_VLAN157
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+interface gpon 0/8
+onu auto-learn
+onu auto-learn line-profile name line_PON8_VLAN158
+onu auto-learn srv-profile name srv_PON8_VLAN158
+onu auto-learn alarm-profile name alarm_profile_1
+exit
+!
+!
+!
+debug mode 
+exit
+!
+ip route 0.0.0.0/0 10.20.31.9
+!
+
+!
+!
+login-access-list enable 
+!
+queue-scheduler strict-priority
+!<RSTP Config Information>
+!
+dhcp-server leasetime 864000
+dhcp-server startip 192.168.0.20 endip 192.168.0.254
+dhcp-server interface vlan 1
+!
+!<dhcp relay config information>
+!<tacplus config information>
+!
+!<radius config information>
+!
+!<dhcp6 server config information>
+duid duid-llt
+!<dhcp6 relay config information>
+!
+!
+!
+!
+loopback detect enable pon
+loopback mode manual-recovery
+crypto key generate rsa usage-keys modulus 2048
+snmp-server start
+snmp-server community test rw 
+snmp-server community public ro 
+snmp-server community private rw 
+snmp-server notify notify inform inform  inform 
+snmp-server notify notify trap trap  trap 
+remote server 103.81.104.78
+!
+!
+fan mode open
+
+!!!
+          
+!!!
+alarm oamlog critical-event enable
+alarm oamlog dying-gasp enable
+alarm oamlog link-fault enable
+alarm oamlog link-event disable
+alarm oamlog organization-specific enable
+web login timeout 30
+web verification-code disable
+!
+time zone 6
+timezone offset 1
+!
+!um
+user add admin login-password f1fb5873573649124b93452f177dc7c1
+user role admin ADMIN enable-password f1fb5873573649124b93452f177dc7c1
+user add noc login-password d766ef35f475d78cc760bf958225a591
+user role noc ADMIN enable-password d766ef35f475d78cc760bf958225a591
+user add rasel login-password 3a6addf177a96db51f208503921a2683
+!<MSTP Config Information>
+spanning-tree mst configuration
+exit
+!
+!
+interface gigabitethernet 0/1
+exit
+!
+interface gigabitethernet 0/2
+exit
+!
+interface gigabitethernet 0/3
+exit
+!
+interface gigabitethernet 0/4
+exit
+!
+interface gigabitethernet 0/5
+exit
+!
+interface gigabitethernet 0/6
+exit
+!
+interface gigabitethernet 0/7
+exit
+!
+interface gigabitethernet 0/8
+ spanning-tree mst instance 0 path-cost 20000
+exit
+!
+interface gigabitethernet 0/9
+exit
+!
+interface gigabitethernet 0/10
+exit
+!
+interface gigabitethernet 0/11
+exit
+!
+interface gigabitethernet 0/12
+exit
+!
+interface gigabitethernet 0/13
+exit
+!
+interface gigabitethernet 0/14
+exit
+!
+interface gigabitethernet 0/15
+exit
+!
+interface gigabitethernet 0/16
+exit
+!
+!
+interface vlan 150
+interface vlan 1606
+!
+debug mode 
+debug ospf6 lsa unknown
+!
+exit
+!
+interface vlan 150
+!
+interface vlan 1606
+!
+ntp server 182.16.156.5 
+
+
